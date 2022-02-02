@@ -1,0 +1,892 @@
+{
+	"info": {
+		"_postman_id": "4de23b3f-8a6d-49dd-97fe-2964ee7dc3fc",
+		"name": "Kie Server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Check server",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get server ",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/rest/server/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "Set-Cookie",
+							"value": "JSESSIONID=F5599E914A7478782AAE7FFF881F7622; Path=/; HttpOnly"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 31 Jan 2022 19:35:20 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "869"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Kie Server info\",\n  \"result\" : {\n    \"kie-server-info\" : {\n      \"id\" : \"boot-kie-server\",\n      \"version\" : \"7.59.0.Final\",\n      \"name\" : \"KIE Server SpringBoot\",\n      \"location\" : \"http://localhost:8090/rest/server\",\n      \"capabilities\" : [ \"KieServer\", \"BRM\", \"BPM\", \"CaseMgmt\", \"BPM-UI\", \"DMN\", \"Scenario Simulation\" ],\n      \"messages\" : [ {\n        \"severity\" : \"INFO\",\n        \"timestamp\" : {\n  \"java.util.Date\" : 1643657712305\n},\n        \"content\" : [ \"Server KieServerInfo{serverId='boot-kie-server', version='7.59.0.Final', name='KIE Server SpringBoot', location='http://localhost:8090/rest/server', capabilities=[KieServer, BRM, BPM, CaseMgmt, BPM-UI, DMN, Scenario Simulation]', messages=null', mode=DEVELOPMENT}started successfully at Mon Jan 31 16:35:12 BRT 2022\" ]\n      } ],\n      \"mode\" : \"DEVELOPMENT\"\n    }\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Create container",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"config-items\": [\n    {\n      \"itemName\": \"RuntimeStrategy\",\n      \"itemValue\": \"SINGLETON\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"MergeMode\",\n      \"itemValue\": \"MERGE_COLLECTIONS\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"KBase\",\n      \"itemValue\": \"\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"KSession\",\n      \"itemValue\": \"\",\n      \"itemType\": \"java.lang.String\"\n    }\n  ],\n  \"release-id\": {\n    \"group-id\": \"com.drools\",\n    \"artifact-id\": \"firefighter\",\n    \"version\": \"1.0-SNAPSHOT\"\n  },\n  \"scanner\": {\n    \"poll-interval\": \"5000\",\n    \"status\": \"STARTED\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/firefighter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"firefighter"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Create container",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"config-items\": [\n    {\n      \"itemName\": \"RuntimeStrategy\",\n      \"itemValue\": \"SINGLETON\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"MergeMode\",\n      \"itemValue\": \"MERGE_COLLECTIONS\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"KBase\",\n      \"itemValue\": \"\",\n      \"itemType\": \"java.lang.String\"\n    },\n    {\n      \"itemName\": \"KSession\",\n      \"itemValue\": \"\",\n      \"itemType\": \"java.lang.String\"\n    }\n  ],\n  \"release-id\": {\n    \"group-id\": \"com.drools\",\n    \"artifact-id\": \"firefighter\",\n    \"version\": \"1.0-SNAPSHOT\"\n  },\n  \"scanner\": {\n    \"poll-interval\": \"5000\",\n    \"status\": \"STARTED\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/firefighter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"firefighter"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-KIE-ConversationId",
+							"value": "%27boot-kie-server%27%3A%27firefighter%27%3A%27com.drools%3Afirefighter%3A1.0-SNAPSHOT%27%3A%2744d20649-57f6-41d4-aa54-3fae591689fb%27"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Feb 2022 21:55:35 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1399"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Container firefighter successfully deployed with module com.drools:firefighter:1.0-SNAPSHOT.\",\n  \"result\" : {\n    \"kie-container\" : {\n      \"container-id\" : \"firefighter\",\n      \"release-id\" : {\n        \"group-id\" : \"com.drools\",\n        \"artifact-id\" : \"firefighter\",\n        \"version\" : \"1.0-SNAPSHOT\"\n      },\n      \"resolved-release-id\" : {\n        \"group-id\" : \"com.drools\",\n        \"artifact-id\" : \"firefighter\",\n        \"version\" : \"1.0-SNAPSHOT\"\n      },\n      \"status\" : \"STARTED\",\n      \"scanner\" : {\n        \"status\" : \"STARTED\",\n        \"poll-interval\" : 5000\n      },\n      \"config-items\" : [ {\n        \"itemName\" : \"RuntimeStrategy\",\n        \"itemValue\" : \"SINGLETON\",\n        \"itemType\" : \"java.lang.String\"\n      }, {\n        \"itemName\" : \"MergeMode\",\n        \"itemValue\" : \"MERGE_COLLECTIONS\",\n        \"itemType\" : \"java.lang.String\"\n      }, {\n        \"itemName\" : \"KBase\",\n        \"itemValue\" : \"\",\n        \"itemType\" : \"java.lang.String\"\n      }, {\n        \"itemName\" : \"KSession\",\n        \"itemValue\" : \"\",\n        \"itemType\" : \"java.lang.String\"\n      } ],\n      \"messages\" : [ {\n        \"severity\" : \"INFO\",\n        \"timestamp\" : {\n  \"java.util.Date\" : 1643838935441\n},\n        \"content\" : [ \"Container firefighter successfully created with module com.drools:firefighter:1.0-SNAPSHOT.\" ]\n      } ],\n      \"container-alias\" : null\n    }\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete container",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/firefighter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"firefighter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all containers",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insert Pet and Person (another way but it doesn't work)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"commands\" : [ \n    {\n    \"insert-elements\": {\n        \"objects\":[\n            {\n                \"containedObject\":{\n                    \"@class\":\"com.drools.model.Pet\",\n                    \"name\":\"Plank\",\n                    \"position\":\"on a limb\",\n                    \"type\": \"CAT\"\n                }\n            },\n            {\n                \"containedObject\":{\n                    \"@class\" : \"com.drools.model.Person\",\n                    \"name\" : \"Mirelly\",\n                    \"pet\" : {\n                        \"name\":\"Plank\",\n                        \"position\":\"on a limb\",\n                        \"type\": \"CAT\"\n                    }\n                }\n            }\n        ]\n    }}\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/instances/firefighter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"instances",
+						"firefighter"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exec rule",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lookup\" : null,\n  \"commands\" : [ {\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 0\n}},\n      \"out-identifier\" : \"Sale\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  }, {\n    \"fire-all-rules\" : {\n      \"max\" : -1,\n      \"out-identifier\" : null\n    }\n  } ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/instances/A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"instances",
+								"A"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-KIE-ConversationId",
+							"value": "%27boot-kie-server%27%3A%27A%27%3A%27com.drools%3Adiscount%3A1.0-SNAPSHOT%27%3A%2792966e27-b1f8-4f66-b0d9-072a0192df0c%27"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Feb 2022 22:17:29 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "494"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Container A successfully called.\",\n  \"result\" : {\n    \"execution-results\" : {\n      \"results\" : [ {\n        \"value\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 15\n}},\n        \"key\" : \"Sale\"\n      } ],\n      \"facts\" : [ {\n        \"value\" : {\"org.drools.core.common.DefaultFactHandle\":{\n  \"external-form\" : \"0:2:794456801:794456801:2:DEFAULT:NON_TRAIT:com.drools.model.Sale\"\n}},\n        \"key\" : \"Sale\"\n      } ]\n    }\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Insert and fire Pet and Person",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"lookup\" : null,\n  \"commands\" : [ {\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Pet\":{\n            \"name\":\"Plank\",\n            \"type\": \"CAT\",\n            \"position\":\"on a limb\"\n        }},\n      \"out-identifier\" : \"Pet\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  },{\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Person\":{\n        \"name\" : \"Mirelly\",\n        \"pet\" : {\n            \"name\":\"Plank\",\n            \"type\": \"CAT\",\n            \"position\":\"on a limb\"\n        },\n        \"petCallCount\":0\n       }},\n      \"out-identifier\" : \"Person\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  }, {\n    \"fire-all-rules\" : {\n      \"max\" : -1,\n      \"out-identifier\" : null\n    }\n  } ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/instances/firefighter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"instances",
+						"firefighter"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exec rule",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lookup\" : null,\n  \"commands\" : [ {\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 0\n}},\n      \"out-identifier\" : \"Sale\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  }, {\n    \"fire-all-rules\" : {\n      \"max\" : -1,\n      \"out-identifier\" : null\n    }\n  } ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/instances/A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"instances",
+								"A"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-KIE-ConversationId",
+							"value": "%27boot-kie-server%27%3A%27A%27%3A%27com.drools%3Adiscount%3A1.0-SNAPSHOT%27%3A%2792966e27-b1f8-4f66-b0d9-072a0192df0c%27"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Feb 2022 22:17:29 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "494"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Container A successfully called.\",\n  \"result\" : {\n    \"execution-results\" : {\n      \"results\" : [ {\n        \"value\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 15\n}},\n        \"key\" : \"Sale\"\n      } ],\n      \"facts\" : [ {\n        \"value\" : {\"org.drools.core.common.DefaultFactHandle\":{\n  \"external-form\" : \"0:2:794456801:794456801:2:DEFAULT:NON_TRAIT:com.drools.model.Sale\"\n}},\n        \"key\" : \"Sale\"\n      } ]\n    }\n  }\n}"
+				},
+				{
+					"name": "insert Pet and Person",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lookup\" : null,\n  \"commands\" : [ {\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Pet\":{\n            \"name\":\"Plank\",\n            \"type\": \"CAT\",\n            \"position\":\"on a limb\"\n        }},\n      \"out-identifier\" : \"Pet\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  },{\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Person\":{\n        \"name\" : \"Mirelly\",\n        \"pet\" : {\n            \"name\":\"Plank\",\n            \"position\":\"on a limb\",\n            \"type\": \"CAT\"\n        },\n        \"petCallCount\":2\n       }},\n      \"out-identifier\" : \"Person\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  }, {\n    \"fire-all-rules\" : {\n      \"max\" : -1,\n      \"out-identifier\" : null\n    }\n  } ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/instances/firefighter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"instances",
+								"firefighter"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-KIE-ConversationId",
+							"value": "%27boot-kie-server%27%3A%27firefighter%27%3A%27com.drools%3Afirefighter%3A1.0-SNAPSHOT%27%3A%27736b770d-0536-4c90-95b9-2df50eaeb765%27"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 02 Feb 2022 21:58:33 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "925"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Container firefighter successfully called.\",\n  \"result\" : {\n    \"execution-results\" : {\n      \"results\" : [ {\n        \"value\" : {\"com.drools.model.Person\":{\n  \"name\" : \"Mirelly\",\n  \"pet\" : {\n    \"name\" : \"Plank\",\n    \"position\" : \"on a limb\",\n    \"type\" : \"CAT\"\n  },\n  \"petCallCount\" : 2\n}},\n        \"key\" : \"Person\"\n      }, {\n        \"value\" : {\"com.drools.model.Pet\":{\n  \"name\" : \"Plank\",\n  \"position\" : \"on the street\",\n  \"type\" : \"CAT\"\n}},\n        \"key\" : \"Pet\"\n      } ],\n      \"facts\" : [ {\n        \"value\" : {\"org.drools.core.common.DefaultFactHandle\":{\n  \"external-form\" : \"0:2:459963538:459963538:2:DEFAULT:NON_TRAIT:com.drools.model.Person\"\n}},\n        \"key\" : \"Person\"\n      }, {\n        \"value\" : {\"org.drools.core.common.DefaultFactHandle\":{\n  \"external-form\" : \"0:1:315151849:315151849:1:DEFAULT:NON_TRAIT:com.drools.model.Pet\"\n}},\n        \"key\" : \"Pet\"\n      } ]\n    }\n  }\n}"
+				}
+			]
+		},
+		{
+			"name": "Get all objects",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "kieserver1!",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "kieserver",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"commands\": [ {\n      \"get-objects\": {\n        \"out-identifier\": \"objects\"\n      }\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/rest/server/containers/instances/firefighter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"rest",
+						"server",
+						"containers",
+						"instances",
+						"firefighter"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "exec rule",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"lookup\" : null,\n  \"commands\" : [ {\n    \"insert\" : {\n      \"object\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 0\n}},\n      \"out-identifier\" : \"Sale\",\n      \"return-object\" : true,\n      \"entry-point\" : \"DEFAULT\",\n      \"disconnected\" : false\n    }\n  }, {\n    \"fire-all-rules\" : {\n      \"max\" : -1,\n      \"out-identifier\" : null\n    }\n  } ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/rest/server/containers/instances/A",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"rest",
+								"server",
+								"containers",
+								"instances",
+								"A"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-KIE-ConversationId",
+							"value": "%27boot-kie-server%27%3A%27A%27%3A%27com.drools%3Adiscount%3A1.0-SNAPSHOT%27%3A%2792966e27-b1f8-4f66-b0d9-072a0192df0c%27"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 01 Feb 2022 22:17:29 GMT"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml"
+						},
+						{
+							"key": "Content-Length",
+							"value": "494"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"type\" : \"SUCCESS\",\n  \"msg\" : \"Container A successfully called.\",\n  \"result\" : {\n    \"execution-results\" : {\n      \"results\" : [ {\n        \"value\" : {\"com.drools.model.Sale\":{\n  \"quantity\" : 25,\n  \"item\" : \"Bike\",\n  \"discount\" : 15\n}},\n        \"key\" : \"Sale\"\n      } ],\n      \"facts\" : [ {\n        \"value\" : {\"org.drools.core.common.DefaultFactHandle\":{\n  \"external-form\" : \"0:2:794456801:794456801:2:DEFAULT:NON_TRAIT:com.drools.model.Sale\"\n}},\n        \"key\" : \"Sale\"\n      } ]\n    }\n  }\n}"
+				}
+			]
+		}
+	]
+}
