@@ -1,9 +1,8 @@
 # kie-server-example
 
-To start you need:
-
 - make sure M2_HOME environment variable is set
-- run maven install to [this project](./firefighter)
+- run maven install to 'firefighter' project
+- run [server](./server/src/main/java/com/drools/server/ServerApplication.java)
 
 :memo: [Postman collection](./firefighter/src/main/resources/docs)
 
