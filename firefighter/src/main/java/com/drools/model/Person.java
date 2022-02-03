@@ -1,51 +1,38 @@
 package com.drools.model;
 
 public class Person {
+    private int id;
     private String name;
-    private Pet pet;
-    private int petCallCount;
 
     public Person() {
     }
     
-    public Person(String name, Pet pet, int petCallCount) {
+    public Person( int id,String name) {
+        this.id = id;
         this.name = name;
-        this.pet = pet;
-        this.petCallCount = petCallCount;
 
-        System.out.println(name +"("+pet+")"+petCallCount);
+        System.out.println(this);
     }
 
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public Pet getPet() {
-        return pet;
-    }
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
-
-    public int getPetCallCount() {
-        return petCallCount;
-    }
-
-    public void setPetCallCount(int petCallCount) {
-        this.petCallCount = petCallCount;
-    }
-
-    
-
     @Override
     public String toString() {
-        return "Person[name= '"+name+"', petName= '"+pet.getName()+"', petCallCount= '"+petCallCount+"']";
+        return "Person[id= "+id+"name= '"+name+"']";
     }
     
 }
