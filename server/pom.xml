@@ -28,8 +28,8 @@
 
 		<dependency>
 			<groupId>org.kie</groupId>
-			<artifactId>kie-server-spring-boot-starter-jbpm</artifactId>
-			<version>7.59.0.Final</version>
+			<artifactId>kie-server-spring-boot-starter-drools</artifactId>
+			<version>7.64.0.Final</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.slf4j</groupId>
