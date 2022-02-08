@@ -18,7 +18,6 @@ public class Pet {
         this.type = type;
         this.ownerId = ownerId;
         this.callCount = callCount;
-        System.out.println(name +"("+type.toString()+"): is "+position);
     }
 
     public String getName() {
@@ -35,7 +34,7 @@ public class Pet {
 
     public void setPosition(String position) {
         this.position = position;
-        System.out.println(name + "("+ type.toString() + "): is "+position);
+        System.out.println(name + ": is " + position);
     }
 
     public String getType() {
@@ -44,6 +43,8 @@ public class Pet {
 
     public void setType(String type) {
         this.type = type;
+        System.out.println(name + " is a" + type);
+
     }
 
     public int getOwnerId() {
