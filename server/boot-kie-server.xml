@@ -28,6 +28,42 @@
   </configuration>
   <containers>
     <container>
+      <containerId>firefighter</containerId>
+      <releaseId>
+        <groupId>com.drools</groupId>
+        <artifactId>firefighter</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </releaseId>
+      <status>STARTED</status>
+      <scanner>
+        <status>STARTED</status>
+        <pollInterval>5000</pollInterval>
+      </scanner>
+      <configItems>
+        <config-item>
+          <name>RuntimeStrategy</name>
+          <value>SINGLETON</value>
+          <type>java.lang.String</type>
+        </config-item>
+        <config-item>
+          <name>MergeMode</name>
+          <value>MERGE_COLLECTIONS</value>
+          <type>java.lang.String</type>
+        </config-item>
+        <config-item>
+          <name>KBase</name>
+          <value></value>
+          <type>java.lang.String</type>
+        </config-item>
+        <config-item>
+          <name>KSession</name>
+          <value></value>
+          <type>java.lang.String</type>
+        </config-item>
+      </configItems>
+      <messages/>
+    </container>
+    <container>
       <containerId>A</containerId>
       <releaseId>
         <groupId>com.drools</groupId>
