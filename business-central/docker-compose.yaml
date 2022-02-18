@@ -1,0 +1,35 @@
+version: '3'
+services:
+    drools-workbench:
+        image: jboss/drools-workbench-showcase:latest
+        container_name: drools-workbench
+        ports:
+            - "8080:8080"
+            - "8001:8001"
+        networks: 
+            - drools-network
+
+    kie-server-wildfly:
+        image: quay.io/kiegroup/kie-server-showcase:latest
+        container_name: kie-server-wildfly
+        ports:
+            - "8180:8080"
+        networks: 
+            - drools-network
+        depends_on: 
+            - "drools-workbench"
+        environment:
+            - KIE_SERVER_LOCATION=http://172.18.0.3:8080/kie-server/services/rest/server 
+            - KIE_SERVER_CONTROLLER=http://drools-workbench:8080/business-central/rest/controller 
+            - KIE_SERVER_CONTROLLER_USER=admin 
+            - KIE_SERVER_CONTROLLER_PWD=admin 
+            - KIE_SERVER_PWD=kieserver1! 
+            - KIE_SERVER_USER=kieserver 
+            - KIE_MAVEN_REPO=http://drools-workbench:8080/business-central/maven2 
+            - KIE_MAVEN_REPO_USER=admin 
+            - KIE_MAVEN_REPO_PASSWORD=admin 
+
+
+networks: 
+    drools-network:
+        driver: bridge
