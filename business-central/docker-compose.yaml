@@ -19,7 +19,7 @@ services:
         depends_on: 
             - "drools-workbench"
         environment:
-            - KIE_SERVER_LOCATION=http://172.18.0.3:8080/kie-server/services/rest/server 
+            - KIE_SERVER_LOCATION=http://kie-server-wildfly:8080/kie-server/services/rest/server 
             - KIE_SERVER_CONTROLLER=http://drools-workbench:8080/business-central/rest/controller 
             - KIE_SERVER_CONTROLLER_USER=admin 
             - KIE_SERVER_CONTROLLER_PWD=admin 
