@@ -6,5 +6,5 @@
 
 :memo: [Postman collection](./firefighter/src/main/resources/docs)
 
-Main endpoints are `Create container` and `Insert and fire Pet and Person`
+
 
